@@ -14,7 +14,7 @@ public class BackgroundOpacityFade : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		opacity -= Time.deltaTime / 100;
+		opacity -= Time.deltaTime / 60;
 		o_renderer.color = new Color(1f, 1f, 1f, opacity);
 	}
 }

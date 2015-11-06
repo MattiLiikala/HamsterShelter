@@ -3,7 +3,7 @@ using System.Collections;
 
 public class CountdownCLK : MonoBehaviour {
 
-	float timeRemaining = 100;
+	float timeRemaining = 60;
 
 	// Use this for initialization
 	void Start () {
