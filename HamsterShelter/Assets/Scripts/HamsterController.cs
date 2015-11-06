@@ -7,8 +7,8 @@ public class HamsterController : MonoBehaviour {
 	private Animator animator;
 	private float walkspeed = 2.0f;
 	float walkingdirection = 1.0f;
-	private float wallLeft = -5.0f;
-	private float wallRight = 5.0f;
+	private float wallLeft = -4.0f;
+	private float wallRight = 4.0f;
 	Vector2 walkAmount;
 
 	// Use this for initialization
