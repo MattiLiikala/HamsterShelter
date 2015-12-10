@@ -9,8 +9,9 @@ public class Health : MonoBehaviour {
 		if (other.tag == "Hazard") {
 			
 			if (health == 0) {
+				ScoreController.decreaseCount ();
 				Destroy(gameObject);
-			}
+				}
 			else {
 				health = health - 1;
 			}
