@@ -27,7 +27,6 @@ public class ScoreController : MonoBehaviour {
 	public void increaseTotal() {
 		total = total + 1;
 	}
-
 	public static void decreaseCount() {
 		count = count - 1;
 	}
