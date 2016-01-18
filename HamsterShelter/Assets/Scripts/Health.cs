@@ -1,21 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Health : MonoBehaviour {
-
+public class Health : MonoBehaviour, IDamageable 
+{
 	public int health;
+    private bool isDead;
 	
-	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Hazard") {
-			
-			if (health == 0) {
-				ScoreController.decreaseCount ();
-				Destroy(gameObject);
-				}
-			else {
-				health = health - 1;
-			}
-		}
-		
+	public void TakeDamage(int amount) 
+    {
+        if (isDead) return;
+
+        health -= amount;
+
+        if (health <= 0)
+        {
+            ScoreController.Count--;
+
+            isDead = true;
+            Destroy(gameObject);
+        }
 	}
 }

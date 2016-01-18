@@ -1,16 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WallScript : MonoBehaviour {
+public class WallScript : MonoBehaviour, IDamageable {
 
 	public int durability;
+
+    public void TakeDamage(int amount)
+    {
+        durability -= amount;
+
+        if (durability <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 	
-	void OnTriggerEnter2D(Collider2D other) {
-		if (durability > 0) {
-			durability = durability - 1;
-		}
-		else {
-		Destroy(gameObject);
-		}
-	}
 }
