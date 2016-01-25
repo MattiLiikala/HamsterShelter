@@ -28,6 +28,6 @@ public class SpawnObjectButton : MonoBehaviour, IPointerDownHandler
         if (draggable != null) draggable.StartDragging();
 
         SpawnedAmount = SpawnedAmount + 1;
-        WallController.increaseCount();
+        WallController.instance.increaseCount();
     }
 }

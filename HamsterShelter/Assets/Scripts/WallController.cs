@@ -5,13 +5,15 @@ using System.Collections;
 public class WallController : MonoBehaviour {
 
 
-	public static int total = 5;
+	public int total = 5;
 	public static int count;
+    public static WallController instance;
 	Text text;
 
 
 	void Awake () {
 		text = GetComponent<Text> ();
+        instance = this;
 
 	}
 
@@ -20,7 +22,7 @@ public class WallController : MonoBehaviour {
 		text.text = "Blocks used: " + count + "/" + total;
 	}
 
-	public static void increaseCount() {
+	public void increaseCount() {
 		count = count + 1;
 
 	}
