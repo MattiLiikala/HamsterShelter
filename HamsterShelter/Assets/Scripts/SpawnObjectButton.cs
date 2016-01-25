@@ -5,18 +5,19 @@ using UnityEngine.EventSystems;
 
 public class SpawnObjectButton : MonoBehaviour, IPointerDownHandler
 {
+    //a counter which is increased when pressing the button
+    public Counter Counter;
 
 	public GameObject ObjectToSpawn;
 
     public Vector3 ObjectRotation;
 
-	//public Vector3 spawnPosition;
-	public static int SpawnedAmount;
-	public int MaxSpawnAmount = 5;
-
     public void OnPointerDown(PointerEventData eventData)
     {
-		if (SpawnedAmount >= MaxSpawnAmount) return;
+        if (Counter != null)
+        {
+            if (Counter.Count >= Counter.Total) return;
+        }
 
         Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         spawnPosition.z = 0.0f;
@@ -25,9 +26,12 @@ public class SpawnObjectButton : MonoBehaviour, IPointerDownHandler
 
         //start dragging the object if it has a DraggableObject-component
         DraggableObject draggable = spawnedObject.GetComponent<DraggableObject>();
-        if (draggable != null) draggable.StartDragging();
+        if (draggable != null)
+        {
+            draggable.Counter = Counter;
+            draggable.StartDragging();
+        }
 
-        SpawnedAmount = SpawnedAmount + 1;
-        WallController.increaseCount();
+        if (Counter != null) Counter.Count++;
     }
 }

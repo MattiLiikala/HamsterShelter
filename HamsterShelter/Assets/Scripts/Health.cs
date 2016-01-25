@@ -14,7 +14,7 @@ public class Health : MonoBehaviour, IDamageable
 
         if (health <= 0)
         {
-            ScoreController.Count--;
+            ScoreCounter.Instance.Count--;
 
             isDead = true;
             Destroy(gameObject);
