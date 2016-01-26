@@ -7,20 +7,24 @@ public class DraggableObject : MonoBehaviour
 {
     private static GameObject DraggedObject;
 
+    public Counter Counter;
+
     const float GridSize = 1.0f;
 
     private Vector3 offset;
 
     private Rigidbody2D rigidBody;
     private Collider2D collider;
+    private SpriteRenderer renderer;
 
     //used for storing the gravity scale because it's set to 0 while dragging
     private float prevGravityScale;
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        rigidBody   = GetComponent<Rigidbody2D>();
+        collider    = GetComponent<Collider2D>();
+        renderer    = GetComponent<SpriteRenderer>();
     }
 
     public void OnMouseDown()
@@ -64,6 +68,13 @@ public class DraggableObject : MonoBehaviour
         }
         if (collider != null) collider.enabled = true;
 
+        //if couldn't place the object at the specific position, delete it and decrease the counter
+        if (!IsPlaceablePosition(transform.position))
+        {
+            if (Counter != null) Counter.Count--;
+            Destroy(gameObject);
+        }
+
         DraggedObject = null;
     }
 
@@ -76,6 +87,13 @@ public class DraggableObject : MonoBehaviour
             Vector3 dragPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dragPos.z = 0;
 
+            bool isPlaceable = IsPlaceablePosition(dragPos);
+
+            if (renderer != null)
+            {
+                renderer.color = isPlaceable ? Color.white : Color.red;
+            }
+
             //align the object to the grid
             dragPos.x = Mathf.Round(dragPos.x / GridSize) * GridSize;
             dragPos.y = Mathf.Round(dragPos.y / GridSize) * GridSize;
@@ -86,5 +104,12 @@ public class DraggableObject : MonoBehaviour
         {
             StopDragging();
         }
+    }
+
+    private bool IsPlaceablePosition(Vector3 position)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
+
+        return hit.collider != null;
     }
 }
