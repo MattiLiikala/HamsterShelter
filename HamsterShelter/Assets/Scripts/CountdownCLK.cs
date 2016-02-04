@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
-public class CountdownCLK : MonoBehaviour {
+public class CountdownCLK : MonoBehaviour 
+{
+    public float StartTime = 60.0f;
 
-	float timeRemaining = 60;
+    [SerializeField]
+    private Text text;
+    
+	private float timeRemaining;
 
-	// Use this for initialization
-	void Start () {
+    private bool countdownFinished;
 
-	}
+    void Start()
+    {
+        timeRemaining = StartTime;
+    }
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+    {
+        if (countdownFinished) return;
 		timeRemaining -= Time.deltaTime;
 
-	}
+        text.text = timeRemaining > 0 ? "Time remaining: " + (int)timeRemaining : "TAKE COVER!";
 
-	void OnGUI(){
-		if (timeRemaining > 0)
-			{
-					GUI.Label(new Rect(500,20,Screen.width,Screen.height), "Time Remaining:" + (int)timeRemaining);
-			}
-			else
-			{
-					GUI.Label(new Rect(500,20,Screen.width,Screen.height), "TAKE COVER!");
-			}
-	}
-
+        if (timeRemaining <= 0.0f)
+        {
+            countdownFinished = true;
+        }
+	}    
 }

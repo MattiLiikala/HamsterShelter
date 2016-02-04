@@ -9,11 +9,13 @@ public class MeteorRain : MonoBehaviour {
 	public int Amount;
 	public float Wait, StartWait;
 	
-	void Start () {
+	void Start () 
+    {
 		StartCoroutine (SpawnWaves());
 	}
 	
-	IEnumerator SpawnWaves () {
+	IEnumerator SpawnWaves () 
+    {
 		yield return new WaitForSeconds(StartWait);
 
 		for(int i = 0; i < Amount; i++)
@@ -29,10 +31,13 @@ public class MeteorRain : MonoBehaviour {
             meteor.GetComponent<Rigidbody2D>().velocity = SpawnVelocity;
 
 			yield return new WaitForSeconds(Wait);
-		} 			
+		}
+
+        GameManager.Instance.RainEnded();
 	}
 
-    void OnDrawGizmos() {
+    void OnDrawGizmos() 
+    {
         Gizmos.color = Color.red;
 
         //visualize the spawn area
