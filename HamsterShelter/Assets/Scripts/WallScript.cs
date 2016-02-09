@@ -5,8 +5,9 @@ public class WallScript : MonoBehaviour, IDamageable
 {
 
 	public int Durability;
-
     private int health;
+
+    public GameObject SpawnWhenDestroyed;
 
     public Sprite[] Sprites;
 
@@ -34,7 +35,15 @@ public class WallScript : MonoBehaviour, IDamageable
         spriteRenderer.sprite = Sprites[Mathf.Clamp(spriteIndex, 0, Sprites.Length-1)];
 
         //todo: add some visual effect when the wall is destroyed (particles, pieces flying off or something)
-        if (health <= 0) Destroy(gameObject);
+        if (health <= 0)
+        {
+            if (SpawnWhenDestroyed != null)
+            {
+                Instantiate(SpawnWhenDestroyed, transform.position, transform.rotation);
+            }
+
+            Destroy(gameObject);
+        }
     }
 	
 }
