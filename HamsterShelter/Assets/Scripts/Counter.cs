@@ -33,7 +33,7 @@ public class Counter : MonoBehaviour
     }
 
 
-    void Awake()
+    protected virtual void Awake()
     {
         textComponent = GetComponent<Text>();
     }
