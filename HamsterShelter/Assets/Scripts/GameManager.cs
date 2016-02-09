@@ -4,6 +4,11 @@ using System.Collections;
 
 public class GameManager : Singleton<GameManager> 
 {
+    void OnLevelWasLoaded(int level)
+    {
+        //set normal timescale in case the game was paused before loading;
+        Time.timeScale = 1.0f;
+    }
 
     public void ReloadCurrentScene()
     {

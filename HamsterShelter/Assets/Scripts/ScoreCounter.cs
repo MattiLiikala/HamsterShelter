@@ -5,9 +5,11 @@ public class ScoreCounter : Counter {
 
     public static ScoreCounter Instance;
 
-	void Start () 
+    protected override void Awake()
     {
+        base.Awake();
+
         Instance = this;
-	}
-	
+    }
+
 }

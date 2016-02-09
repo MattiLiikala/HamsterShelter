@@ -5,6 +5,11 @@ public class Hamster : MonoBehaviour, IDamageable
 {
 	public int health;
     private bool isDead;
+
+    void Start()
+    {
+        ScoreCounter.Instance.Count++;
+    }
 	
 	public void TakeDamage(int amount) 
     {
