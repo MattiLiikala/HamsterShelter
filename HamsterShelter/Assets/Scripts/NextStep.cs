@@ -15,13 +15,13 @@ public class NextStep : MonoBehaviour {
 
 		counter++;
 		if (counter == 1) {
-			teksti.text = "From the top of the screen you can drag and drop hamsters to the ground. Drag a hamster to the ground and click here to continue";
+			teksti.text = "Welcome to Hamster Shelter! Your task is to build a shelter for hamsters before the armageddon starts. Click to continue";
 		}
 		if (counter == 2) {
-			teksti.text = "You can also drag and drop building blocks from top menu. Drag blocks to build a simple shelter for your hamster and click here to continue";
+			teksti.text = "From top menu you can drag and drop building blocks to build a shelter. Build a simple shelter for the smaller hamster sitting on the ground and click here to continue";
 		}
 		if (counter == 3) {
-			teksti.text = "If you are happy with your shelter click here and armageddon will start in 5 secods";
+			teksti.text = "If you are happy with your shelter click here and armageddon will start in 5 seconds";
 		}
 		if (counter == 4) {
 			Instantiate(sade, paikka, Quaternion.identity);
