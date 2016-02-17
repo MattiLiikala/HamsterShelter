@@ -9,7 +9,7 @@ public class DraggableObject : MonoBehaviour
 
     public Counter Counter;
 
-    const float GridSize = 1.0f;
+    const float GridSize = 0.7f;
 
     private Vector3 offset;
 

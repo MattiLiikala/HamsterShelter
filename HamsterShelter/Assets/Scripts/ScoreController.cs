@@ -2,30 +2,34 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class WallController : MonoBehaviour {
+public class ScoreController : MonoBehaviour {
 
-
-	public int total = 10;
+	public static int total;
 	public static int count;
-    public static WallController instance;
 	Text text;
 
 
 	void Awake () {
 		text = GetComponent<Text> ();
-        instance = this;
-
+	
 	}
-
+	
 	// Update is called once per frame
 	void Update () {
-		text.text = "Blocks used: " + count + "/" + total;
+		text.text = "Hamsters alive: " + count + "/" + total;
 	}
 
 	public void increaseCount() {
 		count = count + 1;
+		increaseTotal ();
 
 	}
-		
+	public void increaseTotal() {
+		total = total + 1;
+	}
+	public static void decreaseCount() {
+		count = count - 1;
+	}
 
 }
+
