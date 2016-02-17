@@ -12,6 +12,11 @@ public class MeteorRain : MonoBehaviour {
 	public float WaitBetweenMeteors, WaitTimer;
 
     private bool started;
+
+    public bool HasStarted
+    {
+        get { return started; }
+    }
 	
     void Awake()
     {

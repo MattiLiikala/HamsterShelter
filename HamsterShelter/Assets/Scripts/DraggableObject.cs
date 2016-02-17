@@ -20,6 +20,8 @@ public class DraggableObject : MonoBehaviour
     //used for storing the gravity scale because it's set to 0 while dragging
     private float prevGravityScale;
 
+    private Vector3 draggingStartPos;
+
     void Start()
     {
         rigidBody   = GetComponent<Rigidbody2D>();
@@ -54,6 +56,7 @@ public class DraggableObject : MonoBehaviour
         if (collider != null) collider.enabled = false;
 
         DraggedObject = this.gameObject;
+        draggingStartPos = transform.position;
     }
 
     /// <summary>
@@ -71,8 +74,16 @@ public class DraggableObject : MonoBehaviour
         //if couldn't place the object at the specific position, delete it and decrease the counter
         if (!IsPlaceablePosition(transform.position))
         {
-            if (Counter != null) Counter.Count--;
-            Destroy(gameObject);
+            if (Counter != null)
+            {
+                Counter.Count--;
+                Destroy(gameObject);
+            }
+            else
+            {
+                transform.position = draggingStartPos;
+                renderer.color = Color.white;
+            }
         }
 
         DraggedObject = null;

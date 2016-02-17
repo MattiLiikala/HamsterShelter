@@ -5,6 +5,8 @@ public class ExplodeObject : MonoBehaviour
 {
     public float MinImpulse, MaxImpulse;
 
+    public float Lifetime = 3.0f;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -22,5 +24,7 @@ public class ExplodeObject : MonoBehaviour
 
             rigidBody.AddForce(impulse, ForceMode2D.Impulse);
         }
+
+        Destroy(gameObject, Lifetime);
 	}
 }
