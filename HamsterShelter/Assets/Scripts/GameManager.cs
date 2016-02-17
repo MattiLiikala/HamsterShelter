@@ -2,8 +2,15 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class GameManager : Singleton<GameManager> 
+public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    void Awake()
+    {
+        Instance = this;
+    }
+
     void OnLevelWasLoaded(int level)
     {
         //set normal timescale in case the game was paused before loading;

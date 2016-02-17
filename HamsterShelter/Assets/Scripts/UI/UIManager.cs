@@ -2,12 +2,19 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// Singleton = there's always one (and only one) instance of the object and it can easily accessed from anywhere by using UIManager.Instance
-
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {
+    public static UIManager Instance;
+
     [SerializeField]
     private GameObject LevelPassedMenu, GameOverMenu;
+
+    public Counter WallCounter;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     public void ShowLevelPassedMenu()
     {

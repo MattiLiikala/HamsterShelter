@@ -4,8 +4,6 @@ using System.Collections;
 
 public class CountdownCLK : MonoBehaviour 
 {
-    public float StartTime = 60.0f;
-
     [SerializeField]
     private Text text;
     
@@ -15,14 +13,14 @@ public class CountdownCLK : MonoBehaviour
 
     void Start()
     {
-        timeRemaining = StartTime;
+        timeRemaining = MeteorRain.Instance.WaitTimer;
     }
 
 	// Update is called once per frame
 	void Update () 
     {
         if (countdownFinished) return;
-		timeRemaining -= Time.deltaTime;
+        timeRemaining = MeteorRain.Instance.WaitTimer;
 
         text.text = timeRemaining > 0 ? "Time remaining: " + (int)timeRemaining : "TAKE COVER!";
 
