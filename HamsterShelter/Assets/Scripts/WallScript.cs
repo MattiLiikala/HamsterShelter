@@ -13,9 +13,12 @@ public class WallScript : MonoBehaviour, IDamageable
 
     private SpriteRenderer spriteRenderer;
 
+    private Rigidbody2D rigidBody;
+
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer  = GetComponent<SpriteRenderer>();
+        rigidBody       = GetComponent<Rigidbody2D>();
 
         if (Sprites.Length==0)
         {
@@ -24,6 +27,11 @@ public class WallScript : MonoBehaviour, IDamageable
         }
 
         health = Durability;
+    }
+
+    void Update()
+    {
+        rigidBody.isKinematic = !MeteorRain.Instance.HasStarted;
     }
 
     public void TakeDamage(int amount)
