@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>MYLLY</Machine>
+    <WindowsUser>Mikko</WindowsUser>
+    <TargetPlatformIdentifier>WindowsPhoneApp</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows Phone 8.1</TargetOsDescription>
+    <SolutionConfiguration>Master|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
+    <PackageIdentityName>9f244d0c-5d10-4abe-ab02-897f60bba222</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\obj\ARM\Master\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\HamsterShelter.exe">
+      <PackagePath>HamsterShelter.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assembly-CSharp.dll">
+      <PackagePath>Assembly-CSharp.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\UnityEngine.dll">
+      <PackagePath>UnityEngine.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\UnityEngine.Networking.dll">
+      <PackagePath>UnityEngine.Networking.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\UnityEngine.UI.dll">
+      <PackagePath>UnityEngine.UI.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\UnityEngineProxy.dll">
+      <PackagePath>UnityEngineProxy.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\WinRTLegacy.dll">
+      <PackagePath>WinRTLegacy.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\BridgeInterface.dll">
+      <PackagePath>BridgeInterface.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\UnityEngineDelegates.dll">
+      <PackagePath>UnityEngineDelegates.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\UnityPlayer.dll">
+      <PackagePath>UnityPlayer.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\BridgeInterface.winmd">
+      <PackagePath>BridgeInterface.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\UnityEngineDelegates.winmd">
+      <PackagePath>UnityEngineDelegates.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\UnityPlayer.winmd">
+      <PackagePath>UnityPlayer.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\Players\WindowsPhone81\ARM\Master\WinRTBridge.winmd">
+      <PackagePath>WinRTBridge.winmd</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assets\AppIcon.scale-240.png">
+      <PackagePath>Assets\AppIcon.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assets\MediumTile.scale-240.png">
+      <PackagePath>Assets\MediumTile.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assets\SmallTile.scale-240.png">
+      <PackagePath>Assets\SmallTile.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assets\SplashScreen.scale-240.png">
+      <PackagePath>Assets\SplashScreen.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Assets\StoreLogo.scale-240.png">
+      <PackagePath>Assets\StoreLogo.scale-240.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\globalgamemanagers">
+      <PackagePath>Data\globalgamemanagers</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level0">
+      <PackagePath>Data\level0</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level1">
+      <PackagePath>Data\level1</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level2">
+      <PackagePath>Data\level2</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level3">
+      <PackagePath>Data\level3</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level4">
+      <PackagePath>Data\level4</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level5">
+      <PackagePath>Data\level5</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level6">
+      <PackagePath>Data\level6</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\Resources\unity default resources">
+      <PackagePath>Data\Resources\unity default resources</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\Resources\unity_builtin_extra">
+      <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\globalgamemanagers.assets">
+      <PackagePath>Data\globalgamemanagers.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets0.assets">
+      <PackagePath>Data\sharedassets0.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets1.assets">
+      <PackagePath>Data\sharedassets1.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets2.assets">
+      <PackagePath>Data\sharedassets2.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets3.assets">
+      <PackagePath>Data\sharedassets3.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets4.assets">
+      <PackagePath>Data\sharedassets4.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets5.assets">
+      <PackagePath>Data\sharedassets5.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets6.assets">
+      <PackagePath>Data\sharedassets6.assets</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\managedAssemblies.txt">
+      <PackagePath>Data\managedAssemblies.txt</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets0.assets.resS">
+      <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets1.assets.resS">
+      <PackagePath>Data\sharedassets1.assets.resS</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets2.assets.resS">
+      <PackagePath>Data\sharedassets2.assets.resS</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\HamsterShelter.xr.xml">
+      <PackagePath>HamsterShelter.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Master\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Phone</Name>
+      <Version>12.0.30113.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Phone, MinVersion = 12.0.30113.0</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Retail\ARM\Microsoft.VCLibs.ARM.12.00.Phone.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Phone</Name>
+      <Version>12.0.30113.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Phone, MinVersion = 12.0.30113.0</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\WindowsPhoneApp\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Retail\x86\Microsoft.VCLibs.x86.12.00.Phone.appx</AppxLocation>
+      <MoreInfo></MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
