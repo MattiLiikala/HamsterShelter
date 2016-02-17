@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 34ca7338928b6f24a87fbafb5424cc96
+timeCreated: 1449737218
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: meteoriSpritesheet_0
+    21300002: meteoriSpritesheet_1
+    21300004: meteoriSpritesheet_2
+    21300006: meteoriSpritesheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: meteoriSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 4
+        width: 100
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33, y: 124}
+        - {x: -44, y: 50}
+        - {x: -44, y: -103}
+        - {x: -37, y: -124}
+        - {x: 32, y: -124}
+        - {x: 50, y: -88}
+        - {x: 50, y: 87}
+        - {x: 31, y: 124}
+      - - {x: -49, y: -19}
+        - {x: -48, y: -21}
+        - {x: -45, y: -21}
+        - {x: -42, y: -20}
+        - {x: -42, y: 4}
+        - {x: -43, y: 5}
+        - {x: -47, y: 5}
+        - {x: -49, y: 2}
+      - - {x: 45, y: 15}
+        - {x: 44, y: 11}
+        - {x: 44, y: -4}
+        - {x: 45, y: -7}
+        - {x: 50, y: -7}
+        - {x: 50, y: 15}
+        - {x: 48, y: 16}
+      - - {x: 27, y: 102}
+        - {x: 22, y: 102}
+        - {x: 20, y: 87}
+        - {x: 20, y: 69}
+        - {x: 24, y: 65}
+        - {x: 31, y: 65}
+        - {x: 32, y: 68}
+        - {x: 32, y: 96}
+        - {x: 29, y: 101}
+    - name: meteoriSpritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 4
+        width: 100
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 124}
+        - {x: -40, y: 37}
+        - {x: -43, y: 13}
+        - {x: -43, y: -116}
+        - {x: -29, y: -124}
+        - {x: 28, y: -124}
+        - {x: 50, y: -85}
+        - {x: 50, y: 30}
+        - {x: 28, y: 124}
+      - - {x: -42, y: 0}
+        - {x: -45, y: -1}
+        - {x: -47, y: -6}
+        - {x: -47, y: -30}
+        - {x: -44, y: -31}
+        - {x: -40, y: -31}
+        - {x: -39, y: -30}
+        - {x: -39, y: -1}
+    - name: meteoriSpritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 4
+        width: 100
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 30, y: 64}
+        - {x: 27, y: 63}
+        - {x: 24, y: 54}
+        - {x: 24, y: 49}
+        - {x: 18, y: 103}
+        - {x: 16, y: 104}
+        - {x: 13, y: 103}
+        - {x: 9, y: 124}
+        - {x: -16, y: 124}
+        - {x: -20, y: 119}
+        - {x: -16, y: 101}
+        - {x: -12, y: 103}
+        - {x: -9, y: 106}
+        - {x: -40, y: 50}
+        - {x: -48, y: 14}
+        - {x: -48, y: -118}
+        - {x: -35, y: -124}
+        - {x: 24, y: -124}
+        - {x: 50, y: -79}
+        - {x: 50, y: 2}
+        - {x: 34, y: 64}
+      - - {x: -46, y: 7}
+        - {x: -49, y: 6}
+        - {x: -49, y: -10}
+        - {x: -47, y: -12}
+        - {x: -46, y: -12}
+        - {x: -43, y: -9}
+        - {x: -43, y: 5}
+        - {x: -44, y: 7}
+      - - {x: 46, y: 16}
+        - {x: 45, y: 6}
+        - {x: 48, y: 3}
+        - {x: 50, y: 4}
+        - {x: 50, y: 16}
+        - {x: 49, y: 17}
+      - - {x: 21, y: 101}
+        - {x: 20, y: 78}
+        - {x: 23, y: 74}
+        - {x: 30, y: 74}
+        - {x: 30, y: 96}
+        - {x: 24, y: 102}
+    - name: meteoriSpritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 4
+        width: 100
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 53}
+        - {x: 27, y: 92}
+        - {x: 5, y: 112}
+        - {x: -41, y: 112}
+        - {x: -49, y: 67}
+        - {x: -49, y: -121}
+        - {x: -40, y: -124}
+        - {x: 24, y: -124}
+        - {x: 50, y: -57}
+        - {x: 50, y: -14}
+        - {x: 36, y: 53}
+      - - {x: 46, y: 22}
+        - {x: 46, y: 14}
+        - {x: 48, y: 12}
+        - {x: 50, y: 13}
+        - {x: 50, y: 22}
+        - {x: 49, y: 23}
+      - - {x: 21, y: 90}
+        - {x: 21, y: 85}
+        - {x: 22, y: 82}
+        - {x: 26, y: 82}
+        - {x: 29, y: 83}
+        - {x: 29, y: 98}
+        - {x: 25, y: 100}
+        - {x: 22, y: 99}
+      - - {x: -17, y: 124}
+        - {x: -18, y: 121}
+        - {x: -18, y: 114}
+        - {x: -15, y: 111}
+        - {x: -13, y: 111}
+        - {x: -11, y: 113}
+        - {x: -11, y: 124}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
