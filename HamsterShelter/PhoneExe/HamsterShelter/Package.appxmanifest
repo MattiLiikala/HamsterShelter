@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest" xmlns:m3="http://schemas.microsoft.com/appx/2014/manifest" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="9f244d0c-5d10-4abe-ab02-897f60bba222" Publisher="CN=DefaultCompany" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="9f244d0c-5d10-4abe-ab02-897f60bba222" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>HamsterShelter</DisplayName>
+    <PublisherDisplayName>DefaultCompany</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="9f244d0c-5d10-4abe-ab02-897f60bba222.App">
+      <m3:VisualElements DisplayName="HamsterShelter" Square150x150Logo="Assets\MediumTile.png" Square44x44Logo="Assets\AppIcon.png" Description="HamsterShelter" ForegroundText="light" BackgroundColor="transparent">
+        <m3:DefaultTile DefaultSize="square150x150Logo" Square71x71Logo="Assets\SmallTile.png" />
+        <m3:SplashScreen Image="Assets\SplashScreen.png" />
+        <m3:InitialRotationPreference>
+          <m3:Rotation Preference="landscape" />
+          <m3:Rotation Preference="landscapeFlipped" />
+          <m3:Rotation Preference="portrait" />
+        </m3:InitialRotationPreference>
+      </m3:VisualElements>
+    </Application>
+  </Applications>
+</Package>
