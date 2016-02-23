@@ -1,3 +1,0 @@
-Assembly-CSharp.dll
-UnityEngine.UI.dll
-UnityEngine.Networking.dll

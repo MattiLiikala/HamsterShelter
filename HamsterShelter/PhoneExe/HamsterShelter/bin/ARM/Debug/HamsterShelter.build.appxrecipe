@@ -101,6 +101,9 @@
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level5">
       <PackagePath>Data\level5</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\level6">
+      <PackagePath>Data\level6</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
     </AppxPackagedFile>
@@ -128,6 +131,9 @@
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets5.assets">
       <PackagePath>Data\sharedassets5.assets</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets6.assets">
+      <PackagePath>Data\sharedassets6.assets</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
     </AppxPackagedFile>
@@ -137,8 +143,8 @@
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets1.assets.resS">
       <PackagePath>Data\sharedassets1.assets.resS</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets2.assets.resS">
-      <PackagePath>Data\sharedassets2.assets.resS</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\Data\sharedassets3.assets.resS">
+      <PackagePath>Data\sharedassets3.assets.resS</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mikko\Documents\HamsterShelter\HamsterShelter\PhoneExe\HamsterShelter\bin\ARM\Debug\HamsterShelter.xr.xml">
       <PackagePath>HamsterShelter.xr.xml</PackagePath>
