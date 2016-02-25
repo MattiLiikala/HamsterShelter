@@ -14,6 +14,7 @@ public class BackgroundOpacityFade : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        if (MeteorRain.Instance == null) return;
 		renderer.color = new Color(1f, 1f, 1f, MeteorRain.Instance.WaitTimer / MeteorRain.Instance.WaitDuration);
 	}
 }
