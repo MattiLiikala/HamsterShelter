@@ -5,7 +5,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-
+    
     void Awake()
     {
         Instance = this;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = timeScale;
     }
-
+    
     public void RainEnded()
     {
         UIManager.Instance.ShowLevelPassedMenu();

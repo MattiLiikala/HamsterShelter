@@ -8,6 +8,10 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private GameObject LevelPassedMenu, GameOverMenu;
+    [SerializeField]
+    private Button FastForwardButton;
+
+    private bool fastForward;
 
     public Counter WallCounter;
 
@@ -19,6 +23,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowLevelPassedMenu()
     {
+        LevelPassedMenu.GetComponent<LevelPassedMenu>().ShowScore();
         EnableUIElement(LevelPassedMenu);
     }
 
@@ -40,5 +45,23 @@ public class UIManager : MonoBehaviour
     public void ToggleUIElement(GameObject uiElement)
     {
         uiElement.SetActive(!uiElement.activeSelf);
+    }
+
+    public void ToggleFastForward()
+    {
+        fastForward = !fastForward;
+
+        var colors = FastForwardButton.colors;
+        colors.normalColor = fastForward ? Color.green : Color.white;
+
+        FastForwardButton.colors = colors;
+    }
+
+    void Update()
+    {
+        if (fastForward)
+        {
+            MeteorRain.Instance.WaitTimer -= Time.deltaTime * 5.0f;
+        }
     }
 }

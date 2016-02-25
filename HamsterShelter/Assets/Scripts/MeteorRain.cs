@@ -29,7 +29,7 @@ public class MeteorRain : MonoBehaviour {
 
         bool blocksLeft = UIManager.Instance.WallCounter.Count < UIManager.Instance.WallCounter.Total;
 
-        WaitTimer -= blocksLeft ? Time.deltaTime : Time.deltaTime*10.0f;
+        WaitTimer -= Time.deltaTime;
 
         if (WaitTimer<0)
         {
