@@ -39,6 +39,8 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     public void StartDragging()
     {
+        if (MeteorRain.Instance.HasStarted) return;
+
         //if dragging was started right after instantiating the object, 
         //the Start-method hasn't been called yet and we need to do it manually here:
         if (rigidBody==null && collider==null)
@@ -93,7 +95,7 @@ public class DraggableObject : MonoBehaviour
     {
         if (DraggedObject != this.gameObject) return;
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !MeteorRain.Instance.HasStarted)
         {
             Vector3 dragPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             dragPos.z = 0;
