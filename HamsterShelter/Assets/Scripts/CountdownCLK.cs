@@ -13,13 +13,13 @@ public class CountdownCLK : MonoBehaviour
 
     void Start()
     {
-        timeRemaining = MeteorRain.Instance.WaitTimer;
+        if (MeteorRain.Instance != null) timeRemaining = MeteorRain.Instance.WaitTimer;
     }
 
 	// Update is called once per frame
 	void Update () 
     {
-        if (countdownFinished) return;
+        if (countdownFinished || MeteorRain.Instance == null) return;
         timeRemaining = MeteorRain.Instance.WaitTimer;
 
         text.text = timeRemaining > 0 ? "Time remaining: " + (int)timeRemaining : "TAKE COVER!";
