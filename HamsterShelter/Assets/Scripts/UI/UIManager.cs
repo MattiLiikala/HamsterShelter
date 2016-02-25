@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     public void ShowLevelPassedMenu()
