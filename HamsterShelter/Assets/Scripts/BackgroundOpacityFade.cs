@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackgroundOpacityFade : MonoBehaviour {
-
-	private float opacity;
-	private SpriteRenderer o_renderer;
+public class BackgroundOpacityFade : MonoBehaviour
+{
+	private new SpriteRenderer renderer;
 
 	// Use this for initialization
-	void Start () {
-		o_renderer = this.GetComponent<SpriteRenderer>();
-		opacity = 1f;
+	void Start ()
+    {
+		renderer = this.GetComponent<SpriteRenderer>();
 	}
 
 	// Update is called once per frame
-	void Update () {
-		opacity -= Time.deltaTime / 60;
-		o_renderer.color = new Color(1f, 1f, 1f, opacity);
+	void Update ()
+    {
+		renderer.color = new Color(1f, 1f, 1f, MeteorRain.Instance.WaitTimer / MeteorRain.Instance.WaitDuration);
 	}
 }

@@ -13,14 +13,22 @@ public class MeteorRain : MonoBehaviour {
 
     private bool started;
 
+    public float WaitDuration
+    {
+        get;
+        private set;
+    }
+
     public bool HasStarted
     {
         get { return started; }
     }
-	
+    	
     void Awake()
     {
         Instance = this;
+
+        WaitDuration = WaitTimer;
     }
 
 	void Update() 
