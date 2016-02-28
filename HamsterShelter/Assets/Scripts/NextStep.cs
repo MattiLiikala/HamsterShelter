@@ -4,19 +4,14 @@ using UnityEngine.UI;
 
 public class NextStep : MonoBehaviour {
 
-	private Vector3 paikka = new Vector3(0.48f, 6.54f, 0.0f);
-	public GameObject sade;
-	public Text teksti;
-	private int counter;
+    private Vector3 paikka = new Vector3(0.48f, 6.54f, 0.0f);
+    public GameObject sade;
+    public Text teksti;
+    private int counter = 1;
 
-
-
-	public void onClick() {
+    public void onClick() {
 
 		counter++;
-		if (counter == 1) {
-			teksti.text = "Welcome to Hamster Shelter! Your task is to build a shelter for hamsters before the armageddon starts. Click to continue";
-		}
 		if (counter == 2) {
 			teksti.text = "From top menu you can drag and drop building blocks to build a shelter. Build a simple shelter for the smaller hamster sitting on the ground and click here to continue";
 		}
