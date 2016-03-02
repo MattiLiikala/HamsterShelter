@@ -5,6 +5,7 @@ public class Hamster : MonoBehaviour, IDamageable
 {
 	public int health;
     private bool isDead;
+    public GameObject SpawnOnContact;
 
     void Start()
     {
@@ -27,6 +28,12 @@ public class Hamster : MonoBehaviour, IDamageable
         }
 
         isDead = true;
-        Destroy(gameObject);        
+
+        if (SpawnOnContact != null)
+        {
+            Instantiate(SpawnOnContact, transform.position, transform.rotation);
+        }
+
+        Destroy(gameObject);
 	}
 }
