@@ -108,9 +108,9 @@ public class DraggableObject : MonoBehaviour
             }
 
             //align the object to the grid
-            dragPos.x = Mathf.Round(dragPos.x / GridSize) * GridSize;
-            dragPos.y = Mathf.Round(dragPos.y / GridSize) * GridSize;
-
+            dragPos.x = (Mathf.Floor(dragPos.x / GridSize)+0.5f) * GridSize;
+            dragPos.y = (Mathf.Floor(dragPos.y / GridSize)+0.5f) * GridSize;
+            
             gameObject.transform.position = dragPos;
         }
         else

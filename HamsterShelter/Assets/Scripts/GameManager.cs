@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
     void OnLevelWasLoaded(int level)
