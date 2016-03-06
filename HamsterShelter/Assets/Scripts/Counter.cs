@@ -18,17 +18,17 @@ public class Counter : MonoBehaviour
         set
         {
             total = value;
-            textComponent.text = Text + count + "/" + total;
+            if (textComponent != null) textComponent.text = Text + count + "/" + total;
         }
     }
-    public int Count
+    public virtual int Count
     {
         get { return count; }
         set
         {
             count = value;
             total = System.Math.Max(count, total);
-            textComponent.text = Text + count + "/" + total;
+            if (textComponent != null) textComponent.text = Text + count + "/" + total;
         }
     }
 

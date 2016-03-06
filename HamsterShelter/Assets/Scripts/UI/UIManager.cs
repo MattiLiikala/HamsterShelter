@@ -21,8 +21,9 @@ public class UIManager : MonoBehaviour
         Screen.orientation = ScreenOrientation.LandscapeLeft;
     }
 
-    public void ShowLevelPassedMenu()
+    public IEnumerator ShowLevelPassedMenu(float delay)
     {
+        yield return new WaitForSeconds(delay);
         LevelPassedMenu.GetComponent<LevelPassedMenu>().ShowScore();
         EnableUIElement(LevelPassedMenu);
     }

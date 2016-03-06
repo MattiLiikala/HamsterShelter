@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     
     public void RainEnded()
     {
-        UIManager.Instance.ShowLevelPassedMenu();
+        StartCoroutine(UIManager.Instance.ShowLevelPassedMenu(3.0f));
     }
 
     public void GameOver()
