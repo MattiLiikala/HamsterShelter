@@ -8,6 +8,8 @@ public class ScoreCounter : Counter {
 
     public GameObject[] HamsterIcons;
 
+    public Sprite HamsterAliveSprite, HamsterDeadSprite;
+
     protected override void Awake()
     {
         base.Awake();
@@ -34,8 +36,8 @@ public class ScoreCounter : Counter {
         if (HamsterIcons == null) return;
         for (int i = 0; i < HamsterIcons.Length; i++)
         {
-            HamsterIcons[i].GetComponent<Image>().color = i < Count ? Color.white : Color.black;
-            //HamsterIcons[i].GetComponent<Image>().sprite = i < Count ? Resources.Load<Sprite>("Sprites/HamsterCountSprite_1");
+            HamsterIcons[i].GetComponent<Image>().color = i < Count ? Color.white : Color.gray;
+            HamsterIcons[i].GetComponent<Image>().sprite = i < Count ? HamsterAliveSprite : HamsterDeadSprite;
         }
     }
 
