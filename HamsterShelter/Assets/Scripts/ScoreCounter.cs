@@ -35,6 +35,7 @@ public class ScoreCounter : Counter {
         for (int i = 0; i < HamsterIcons.Length; i++)
         {
             HamsterIcons[i].GetComponent<Image>().color = i < Count ? Color.white : Color.black;
+            //HamsterIcons[i].GetComponent<Image>().sprite = i < Count ? Resources.Load<Sprite>("Sprites/HamsterCountSprite_1");
         }
     }
 
