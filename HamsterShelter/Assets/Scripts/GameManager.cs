@@ -5,11 +5,19 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public AudioSource BackGroundMusicCalm, BackGroundMusicMeteors;
     
     void Awake()
     {
         Instance = this;
         Screen.orientation = ScreenOrientation.LandscapeLeft;
+    }
+
+    void Start()
+    {
+        if (BackGroundMusicCalm != null) BackGroundMusicCalm.enabled = false;
+        if (BackGroundMusicMeteors != null) BackGroundMusicMeteors.enabled = false;
     }
 
     void OnLevelWasLoaded(int level)
@@ -44,6 +52,14 @@ public class GameManager : MonoBehaviour
     public void RainEnded()
     {
         StartCoroutine(UIManager.Instance.ShowLevelPassedMenu(3.0f));
+    }
+
+    void Update()
+    {
+        if (MeteorRain.Instance == null) return;
+
+        BackGroundMusicCalm.enabled = !MeteorRain.Instance.HasStarted;
+        BackGroundMusicMeteors.enabled = MeteorRain.Instance.HasStarted;
     }
 
     public void GameOver()
