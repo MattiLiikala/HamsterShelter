@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public AudioSource BackGroundMusicCalm, BackGroundMusicMeteors;
 
 	public bool isPaused;
+
+	public AudioListener listener;
     
     void Awake()
     {
@@ -84,5 +86,17 @@ public class GameManager : MonoBehaviour
 		Time.timeScale = 1;
 		isPaused = false;
 	}
+
+	public void DisableSound() {
+		if (listener.enabled == true) {
+			listener.enabled = false;
+			return;
+		}
+		if (listener.enabled == false) {
+			listener.enabled = true;
+			return;
+		}
+	}
+		
 
 }
