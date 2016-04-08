@@ -14,24 +14,30 @@ public class SpawnObjectButton : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (Counter != null)
-        {
-            if (Counter.Count >= Counter.Total) return;
-        }
+		if (GameManager.Instance.isPaused == true) {
+			return;
+		} else {
+			if (Counter != null) {
+				if (Counter.Count >= Counter.Total)
+					return;
 
-        Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        spawnPosition.z = 0.0f;
+			}
+			
 
-		var spawnedObject = (GameObject)Instantiate (ObjectToSpawn, spawnPosition, Quaternion.Euler(ObjectRotation));
+			Vector3 spawnPosition = Camera.main.ScreenToWorldPoint (Input.mousePosition);
+			spawnPosition.z = 0.0f;
 
-        //start dragging the object if it has a DraggableObject-component
-        DraggableObject draggable = spawnedObject.GetComponent<DraggableObject>();
-        if (draggable != null)
-        {
-            draggable.Counter = Counter;
-            draggable.StartDragging();
-        }
+			var spawnedObject = (GameObject)Instantiate (ObjectToSpawn, spawnPosition, Quaternion.Euler (ObjectRotation));
 
-        if (Counter != null) Counter.Count++;
+			//start dragging the object if it has a DraggableObject-component
+			DraggableObject draggable = spawnedObject.GetComponent<DraggableObject> ();
+			if (draggable != null) {
+				draggable.Counter = Counter;
+				draggable.StartDragging ();
+			}
+
+			if (Counter != null)
+				Counter.Count++;
+		}
     }
 }

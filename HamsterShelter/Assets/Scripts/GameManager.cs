@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public AudioSource BackGroundMusicCalm, BackGroundMusicMeteors;
+
+	public bool isPaused;
     
     void Awake()
     {
@@ -72,4 +74,15 @@ public class GameManager : MonoBehaviour
     {
 		Application.Quit();
     }
+
+	public void PauseGame() {
+		Time.timeScale = 0;
+		isPaused = true;
+	}
+
+	public void ResumeGame() {
+		Time.timeScale = 1;
+		isPaused = false;
+	}
+
 }

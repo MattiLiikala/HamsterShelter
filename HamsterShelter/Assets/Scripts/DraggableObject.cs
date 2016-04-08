@@ -39,6 +39,8 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     public void StartDragging()
     {
+		if (GameManager.Instance.isPaused == true)
+			return;
         if (MeteorRain.Instance != null && MeteorRain.Instance.HasStarted) return;
 
         //if dragging was started right after instantiating the object, 
@@ -93,6 +95,7 @@ public class DraggableObject : MonoBehaviour
 
     void Update()
     {
+		
         if (DraggedObject != this.gameObject) return;
 
         if (Input.GetMouseButton(0) && (MeteorRain.Instance == null || !MeteorRain.Instance.HasStarted))
