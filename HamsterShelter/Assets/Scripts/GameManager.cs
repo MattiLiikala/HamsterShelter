@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
 
 	public bool isPaused;
 
-	public AudioListener listener;
     
     void Awake()
     {
@@ -88,12 +87,12 @@ public class GameManager : MonoBehaviour
 	}
 
 	public void DisableSound() {
-		if (listener.enabled == true) {
-			listener.enabled = false;
+		if (AudioListener.volume != 0) {
+			AudioListener.volume = 0.0f;
 			return;
 		}
-		if (listener.enabled == false) {
-			listener.enabled = true;
+		if (AudioListener.volume == 0) {
+			AudioListener.volume = 1;
 			return;
 		}
 	}
