@@ -8,7 +8,7 @@ public class GameZoom : MonoBehaviour {
     public float ZoomSpeed = 0.03f;
     public float PanSpeed = 0.05f;
     public float MaxZoom = 2.8f;
-    public Camera ZoomCamera;
+    private Camera ZoomCamera;
 
     private float origZoom;
     private bool isZoomed = false;
@@ -20,12 +20,8 @@ public class GameZoom : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        if (ZoomableScene && ZoomCamera == null)
-        {
-            //If no camera was set, try default camera
-            ZoomCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
-            if (ZoomCamera == null) throw new System.Exception("Camera for GameZoom not found!");
-        }
+        ZoomCamera = Camera.main;
+        if (ZoomCamera == null) throw new System.Exception("Main camera not found for GameZoom script!");
         origZoom = ZoomCamera.orthographicSize;
         //Set up bounds according to "Tausta"
         GameObject tausta;
