@@ -6,6 +6,8 @@ using System.Collections;
 public class DraggableObject : MonoBehaviour
 {
     private static GameObject DraggedObject;
+    //Boolean for checking whether or not any object is being dragged
+    public static bool Dragging;
 
     public Counter Counter;
 
@@ -39,6 +41,8 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     public void StartDragging()
     {
+        Dragging = true;
+
 		if (GameManager.Instance.isPaused == true)
 			return;
         if (MeteorRain.Instance != null && MeteorRain.Instance.HasStarted) return;
@@ -68,6 +72,8 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     public void StopDragging()
     {
+        Dragging = false;
+
         if (rigidBody != null)
         {
             rigidBody.isKinematic = false;
