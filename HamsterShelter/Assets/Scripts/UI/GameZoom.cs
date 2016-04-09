@@ -6,14 +6,15 @@ public class GameZoom : MonoBehaviour {
     //If set to true, this scene can be zoomed by pinching
     public bool ZoomableScene = true;
     public float ZoomSpeed = 0.03f;
-    public float PanSpeed = 0.1f;
+    public float PanSpeed = 0.05f;
+    public float MaxZoom = 2.8f;
     public Camera ZoomCamera;
 
-    private float maxZoom;
+    private float origZoom;
     private bool isZoomed = false;
 
+    //Max bounds for camera panning
     private double minX, maxX, minY, maxY;
-    //TODO: Setup map size programmatically
     private float mapX;
     private float mapY;
 
@@ -25,7 +26,7 @@ public class GameZoom : MonoBehaviour {
             ZoomCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
             if (ZoomCamera == null) throw new System.Exception("Camera for GameZoom not found!");
         }
-        maxZoom = ZoomCamera.orthographicSize;
+        origZoom = ZoomCamera.orthographicSize;
         //Set up bounds according to "Tausta"
         GameObject tausta;
         tausta = GameObject.Find("Tausta");
@@ -38,7 +39,6 @@ public class GameZoom : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(GameObject.Find("Tausta2").GetComponent<Renderer>().bounds.size.x);
         if (ZoomableScene)
         {
             if (Input.touchCount == 2)
@@ -56,15 +56,21 @@ public class GameZoom : MonoBehaviour {
                 float delta = prevMag - currMag;
 
                 ZoomCamera.orthographicSize += delta * ZoomSpeed;
-                ZoomCamera.orthographicSize = Mathf.Max(ZoomCamera.orthographicSize, 3f);
-                ZoomCamera.orthographicSize = Mathf.Min(ZoomCamera.orthographicSize, maxZoom);
+                ZoomCamera.orthographicSize = Mathf.Max(ZoomCamera.orthographicSize, MaxZoom);
+                ZoomCamera.orthographicSize = Mathf.Min(ZoomCamera.orthographicSize, origZoom);
                 CalculateBounds();
                 //Set the isZoomed boolean
-                if (ZoomCamera.orthographicSize == maxZoom) isZoomed = false;
+                if (ZoomCamera.orthographicSize == origZoom) isZoomed = false;
                 else isZoomed = true;
+
+                //After the camera has zoomed, check that the bounds have not been reached
+                Vector3 newPos = ZoomCamera.transform.position;
+                newPos.x = Mathf.Clamp(newPos.x, (float)minX, (float)maxX);
+                newPos.y = Mathf.Clamp(newPos.y, (float)minY, (float)maxY);
+                ZoomCamera.transform.position = newPos;
             }
-            //If the scene is zoomed in and nothing is being dragged, enable moving in scene by touch
-            if(Input.touchCount == 1 && isZoomed && !DraggableObject.Dragging)
+            //If nothing is being dragged, enable moving in scene by touch
+            if(Input.touchCount == 1 && !DraggableObject.Dragging)
             {
                 Vector2 t1 = Input.GetTouch(0).deltaPosition;
                 Vector3 newPos = new Vector3(ZoomCamera.transform.localPosition.x - t1.x * PanSpeed, 
