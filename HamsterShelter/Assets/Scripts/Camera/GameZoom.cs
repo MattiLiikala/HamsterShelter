@@ -9,6 +9,8 @@ public class GameZoom : MonoBehaviour {
     public float PanSpeed = 0.05f;
     public float MaxZoom = 2.8f;
     private Camera ZoomCamera;
+    //The background object used to determine camera boundaries
+    public GameObject tausta;
 
     private float origZoom;
     private bool isZoomed = false;
@@ -24,8 +26,7 @@ public class GameZoom : MonoBehaviour {
         if (ZoomCamera == null) throw new System.Exception("Main camera not found for GameZoom script!");
         origZoom = ZoomCamera.orthographicSize;
         //Set up bounds according to "Tausta"
-        GameObject tausta;
-        tausta = GameObject.Find("Tausta");
+        if(tausta == null) tausta = GameObject.Find("Tausta");
         //since the name is different in one scene...
         if (tausta == null) tausta = GameObject.Find("Tausta2");
         mapX = tausta.GetComponent<Renderer>().bounds.size.x;
