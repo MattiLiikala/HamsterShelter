@@ -74,13 +74,6 @@ public class DraggableObject : MonoBehaviour
     {
         Dragging = false;
 
-        if (rigidBody != null)
-        {
-            rigidBody.isKinematic = false;
-            rigidBody.gravityScale = prevGravityScale;
-        }
-        if (collider != null) collider.enabled = true;
-
         //if couldn't place the object at the specific position, delete it and decrease the counter
         if (!IsPlaceablePosition(transform.position))
         {
@@ -95,7 +88,12 @@ public class DraggableObject : MonoBehaviour
                 renderer.color = Color.white;
             }
         }
-
+        if (rigidBody != null)
+        {
+            rigidBody.isKinematic = false;
+            rigidBody.gravityScale = prevGravityScale;
+        }
+        if (collider != null) collider.enabled = true;
         DraggedObject = null;
     }
 
