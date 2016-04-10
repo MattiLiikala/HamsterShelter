@@ -130,8 +130,18 @@ public class DraggableObject : MonoBehaviour
 
     private bool IsPlaceablePosition(Vector3 position)
     {
+        //Check if the object is inside the placeable area
+        bool inArea;
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
+        if (hit.collider == null) inArea = false;
+        else inArea = true;
 
-        return hit.collider != null;
+        //Check that the object doesn't collide with any existing objects
+        bool collision;
+        RaycastHit2D hit2 = Physics2D.Raycast(position, Vector2.zero, 20.0f);
+        if (hit2.collider == null || hit2.collider.gameObject.layer == LayerMask.NameToLayer("PlaceableArea")) collision = false;
+        else collision = true;
+        Debug.Log(inArea && !collision);
+        return (inArea && !collision);
     }
 }
