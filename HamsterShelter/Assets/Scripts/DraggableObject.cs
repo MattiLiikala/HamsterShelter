@@ -111,7 +111,7 @@ public class DraggableObject : MonoBehaviour
         if (Input.GetMouseButton(0) && (MeteorRain.Instance == null || !MeteorRain.Instance.HasStarted))
         {
             Vector3 dragPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            dragPos.z = 0;
+            dragPos.z = -1;
 
             bool isPlaceable = IsPlaceablePosition(dragPos);
 
