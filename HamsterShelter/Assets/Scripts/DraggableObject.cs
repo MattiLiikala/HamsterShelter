@@ -8,6 +8,8 @@ public class DraggableObject : MonoBehaviour
     private static GameObject DraggedObject;
     //Boolean for checking whether or not any object is being dragged
     public static bool Dragging;
+    //If object is colliding while being dragged (i.e. in non-placeable position) illegalCollision = true
+    private int illegalCollisions = 0;
 
     public Counter Counter;
 
@@ -61,7 +63,8 @@ public class DraggableObject : MonoBehaviour
             rigidBody.isKinematic = true;
             rigidBody.gravityScale = 0.0f;
         }
-        if (collider != null) collider.enabled = false;
+        if (collider != null) collider.isTrigger = true;
+
 
         DraggedObject = this.gameObject;
         draggingStartPos = transform.position;
@@ -93,7 +96,7 @@ public class DraggableObject : MonoBehaviour
             rigidBody.isKinematic = false;
             rigidBody.gravityScale = prevGravityScale;
         }
-        if (collider != null) collider.enabled = true;
+        if (collider != null) collider.isTrigger = false;
         DraggedObject = null;
     }
 
@@ -133,13 +136,33 @@ public class DraggableObject : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
         if (hit.collider == null) inArea = false;
         else inArea = true;
+        
+        return (inArea && illegalCollisions == 0);
+    }
 
-        //Check that the object doesn't collide with any existing objects
-        bool collision;
-        RaycastHit2D hit2 = Physics2D.Raycast(position, Vector2.zero, 20.0f);
-        if (hit2.collider == null || hit2.collider.gameObject.layer == LayerMask.NameToLayer("PlaceableArea")) collision = false;
-        else collision = true;
-        Debug.Log(inArea && !collision);
-        return (inArea && !collision);
+    /// <summary>
+    /// If the currently dragged object collides with another object, 
+    /// increment illegalCollisions
+    /// </summary>
+    /// <param name="other"></param>
+   void OnTriggerEnter2D(Collider2D other)
+    {
+        if(this.gameObject == DraggedObject)
+        {
+            illegalCollisions++;
+        }
+    }
+
+    /// <summary>
+    /// If the currently dragged object collides with another object, 
+    /// decrement illegalCollisions
+    /// </summary>
+    /// <param name="other"></param>
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (this.gameObject == DraggedObject)
+        {
+            if(illegalCollisions > 0) illegalCollisions--;
+        }
     }
 }
