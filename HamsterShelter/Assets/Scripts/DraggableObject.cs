@@ -35,7 +35,10 @@ public class DraggableObject : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (DraggedObject == null) StartDragging();
+        if (DraggedObject == null)
+        {
+            StartDragging();
+        }
     }
 	
     /// <summary>
@@ -48,7 +51,7 @@ public class DraggableObject : MonoBehaviour
 		if (GameManager.Instance.isPaused == true)
 			return;
         if (MeteorRain.Instance != null && MeteorRain.Instance.HasStarted) return;
-
+        illegalCollisions = 0;
         //if dragging was started right after instantiating the object, 
         //the Start-method hasn't been called yet and we need to do it manually here:
         if (rigidBody==null && collider==null)
@@ -136,7 +139,7 @@ public class DraggableObject : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
         if (hit.collider == null) inArea = false;
         else inArea = true;
-        
+        Debug.Log(illegalCollisions);
         return (inArea && illegalCollisions == 0);
     }
 
