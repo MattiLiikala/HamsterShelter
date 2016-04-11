@@ -139,7 +139,6 @@ public class DraggableObject : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
         if (hit.collider == null) inArea = false;
         else inArea = true;
-        Debug.Log(illegalCollisions);
         return (inArea && illegalCollisions == 0);
     }
 
