@@ -67,7 +67,7 @@ public class DraggableObject : MonoBehaviour
         {
             prevGravityScale = rigidBody.gravityScale;
 
-            if (!GetComponent<WallScript>()) rigidBody.isKinematic = true;
+            rigidBody.isKinematic = true;
             rigidBody.gravityScale = 0.0f;
         }
         if (collider != null) collider.isTrigger = true;
