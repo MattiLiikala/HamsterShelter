@@ -31,7 +31,9 @@ public class WallScript : MonoBehaviour, IDamageable
 
     void Update()
     {
-        rigidBody.isKinematic = MeteorRain.Instance == null || !MeteorRain.Instance.HasStarted;
+        //rigidBody.isKinematic = MeteorRain.Instance == null || !MeteorRain.Instance.HasStarted;
+        if (MeteorRain.Instance.HasStarted) rigidBody.isKinematic = false;
+        else rigidBody.isKinematic = true;
     }
 
     public void TakeDamage(int amount)
