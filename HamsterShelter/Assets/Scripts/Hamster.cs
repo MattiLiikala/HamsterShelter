@@ -10,6 +10,8 @@ public class Hamster : MonoBehaviour, IDamageable
     void Start()
     {
         ScoreCounter.Instance.Count++;
+        //Set z to -1 
+        transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y, -1);
     }
 	
 	public void TakeDamage(int amount) 
