@@ -93,7 +93,7 @@ public class DraggableObject : MonoBehaviour
                 return;
             }
             //If the original pos is unplaceable, destroy object (i.e. the object was just created)
-            if(GetComponent<WallScript>() != null && !IsPlaceablePosition(draggingStartPos))
+            if(GetComponent<WallScript>() != null && !IsPlaceableArea(draggingStartPos))
             {
                 Destroy(DraggedObject);
                 Counter.Count--;
