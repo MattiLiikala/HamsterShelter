@@ -16,6 +16,7 @@ public class DraggableObject : MonoBehaviour
     public Counter Counter;
 
 	public float GridSize = 0.3f;
+    private float LerpSpeed = 0.2f;
 
     private Vector3 offset;
 
@@ -101,7 +102,7 @@ public class DraggableObject : MonoBehaviour
             }
 
             //If in nonplaceable position, return the object to its original position
-            transform.position = draggingStartPos;
+            StartCoroutine(LerpObjectPosition(draggingStartPos));
             renderer.color = Color.white;
         }
         if (rigidBody != null)
@@ -139,6 +140,17 @@ public class DraggableObject : MonoBehaviour
         else
         {
             StopDragging();
+        }
+    }
+
+    IEnumerator LerpObjectPosition(Vector3 target)
+    {
+        float elapsed = 0;
+        while (elapsed < LerpSpeed)
+        {
+            transform.position = Vector3.Lerp(transform.position, target, (elapsed / LerpSpeed));
+            elapsed += Time.deltaTime;
+            yield return null;
         }
     }
 
