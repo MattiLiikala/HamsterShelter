@@ -10,6 +10,8 @@ public class DraggableObject : MonoBehaviour
     public static bool Dragging;
     //If object is colliding while being dragged (i.e. in non-placeable position) illegalCollision = true
     private int illegalCollisions = 0;
+    //Toggled when object collides with the trash bin object
+    private bool binCollision = false;
 
     public Counter Counter;
 
@@ -20,6 +22,7 @@ public class DraggableObject : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Collider2D collider;
     private SpriteRenderer renderer;
+ 
 
     //used for storing the gravity scale because it's set to 0 while dragging
     private float prevGravityScale;
@@ -80,19 +83,18 @@ public class DraggableObject : MonoBehaviour
     {
         Dragging = false;
 
-        //if couldn't place the object at the specific position, delete it and decrease the counter
         if (!IsPlaceablePosition(transform.position))
         {
-            if (Counter != null)
+            //If the object is a building block outside of placeablea area, delete it
+            if(GetComponent<WallScript>() != null && !IsPlaceableArea(transform.position))
             {
+                Destroy(DraggedObject);
                 Counter.Count--;
-                Destroy(gameObject);
+                return;
             }
-            else
-            {
-                transform.position = draggingStartPos;
-                renderer.color = Color.white;
-            }
+            //If in nonplaceable position, return the object to its original position
+            transform.position = draggingStartPos;
+            renderer.color = Color.white;
         }
         if (rigidBody != null)
         {
@@ -135,11 +137,17 @@ public class DraggableObject : MonoBehaviour
     private bool IsPlaceablePosition(Vector3 position)
     {
         //Check if the object is inside the placeable area
+        bool inArea = IsPlaceableArea(position);
+        return (inArea && illegalCollisions == 0);
+    }
+
+    private bool IsPlaceableArea(Vector3 position)
+    {
         bool inArea;
         RaycastHit2D hit = Physics2D.Raycast(position, Vector2.zero, 1.0f, LayerMask.GetMask("PlaceableArea"));
         if (hit.collider == null) inArea = false;
         else inArea = true;
-        return (inArea && illegalCollisions == 0);
+        return inArea;
     }
 
     /// <summary>
@@ -167,4 +175,6 @@ public class DraggableObject : MonoBehaviour
             if(illegalCollisions > 0) illegalCollisions--;
         }
     }
+
+
 }
