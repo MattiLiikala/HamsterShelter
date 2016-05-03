@@ -197,5 +197,13 @@ public class DraggableObject : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Get the currently dragged object. Used in SnappingObject.cs
+    /// </summary>
+    /// <returns></returns>
+    public static GameObject GetDraggedObject()
+    {
+        return DraggedObject;
+    }
 
 }
