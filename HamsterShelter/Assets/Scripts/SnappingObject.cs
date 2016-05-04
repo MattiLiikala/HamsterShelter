@@ -33,7 +33,7 @@ public class SnappingObject : MonoBehaviour {
     public List<GameObject> GetNearbyMagnets(GameObject anotherMagnet)
     {
         List<GameObject> nearMagnets = new List<GameObject>();
-        Collider2D[] nearColliders = Physics2D.OverlapCircleAll(anotherMagnet.transform.position, 0.5f);
+        Collider2D[] nearColliders = Physics2D.OverlapCircleAll(anotherMagnet.transform.position, 0.3f);
         foreach(Collider2D c in nearColliders)
         {
             if(c.tag == "SnappingMagnet" && c.gameObject != anotherMagnet && !snappingMagnets.Contains(c.gameObject))
@@ -41,7 +41,6 @@ public class SnappingObject : MonoBehaviour {
                 nearMagnets.Add(c.gameObject);
             }
         }
-        Debug.Log(nearMagnets.Count);
         return nearMagnets;
     }
 }

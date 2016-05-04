@@ -14,6 +14,9 @@ public class DraggableObject : MonoBehaviour
     //Toggled when object collides with the trash bin object
     private bool binCollision = false;
 
+    //Toggle to false is snapping is disabled
+    public static bool UseSnapping = false;
+
     public Counter Counter;
 
 	public float GridSize = 0.3f;
@@ -108,7 +111,7 @@ public class DraggableObject : MonoBehaviour
         }
 
         //If the object should be snapped to position
-        SnapToPos();
+        if(UseSnapping) SnapToPos();
 
         if (rigidBody != null)
         {
@@ -180,7 +183,9 @@ public class DraggableObject : MonoBehaviour
         //Align the two magnets to be next to each other
         float diffx = thisMagnet.transform.position.x - otherMagnet.transform.position.x;
         float diffy = thisMagnet.transform.position.y - otherMagnet.transform.position.y;
-        transform.position = new Vector3(transform.position.x - diffx, transform.position.y - diffy, -1);
+        Vector3 newPos = new Vector3(transform.position.x - diffx, transform.position.y - diffy, -1);
+        //TODO: Check that the new position of the block is legal!
+        transform.position = newPos;
     }
 
     IEnumerator LerpObjectPosition(Vector3 target)
