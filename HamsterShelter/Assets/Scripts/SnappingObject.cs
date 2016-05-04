@@ -22,28 +22,26 @@ public class SnappingObject : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //For each magnet (of a dragged object) find nearby magnets
-        if (DraggableObject.GetDraggedObject() == this.gameObject)
-        {
-            foreach (GameObject go in snappingMagnets)
-            {
-                List<GameObject> nearMagnets = getNearbyMagnets(go);
-            }
-        }
 	}
 
+    public List<GameObject> GetMagnets()
+    {
+        return snappingMagnets;
+    }
 
-    private List<GameObject> getNearbyMagnets(GameObject anotherMagnet)
+
+    public List<GameObject> GetNearbyMagnets(GameObject anotherMagnet)
     {
         List<GameObject> nearMagnets = new List<GameObject>();
         Collider2D[] nearColliders = Physics2D.OverlapCircleAll(anotherMagnet.transform.position, 0.5f);
         foreach(Collider2D c in nearColliders)
         {
-            if(c.tag == "SnappingMagnet" && c.gameObject != anotherMagnet)
+            if(c.tag == "SnappingMagnet" && c.gameObject != anotherMagnet && !snappingMagnets.Contains(c.gameObject))
             {
                 nearMagnets.Add(c.gameObject);
             }
         }
+        Debug.Log(nearMagnets.Count);
         return nearMagnets;
     }
 }

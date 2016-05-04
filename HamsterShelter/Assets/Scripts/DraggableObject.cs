@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(BoxCollider2D))]
 
@@ -105,6 +106,10 @@ public class DraggableObject : MonoBehaviour
             StartCoroutine(LerpObjectPosition(draggingStartPos));
             renderer.color = Color.white;
         }
+
+        //If the object should be snapped to position
+        SnapToPos();
+
         if (rigidBody != null)
         {
             if(!GetComponent<WallScript>()) rigidBody.isKinematic = false;
@@ -142,6 +147,88 @@ public class DraggableObject : MonoBehaviour
         {
             StopDragging();
         }
+    }
+
+    private void SnapToPos()
+    {
+        SnappingObject snappingScript = GetComponent<SnappingObject>();
+        float minDist = 1000;
+        GameObject magnet1 = null, magnet2 = null;
+        //Find the two nearest magnets
+        foreach(GameObject m1 in snappingScript.GetMagnets())
+        {
+            foreach(GameObject m2 in snappingScript.GetNearbyMagnets(m1))
+            {
+                float dist = Vector3.Distance(m1.transform.position, m2.transform.position);
+                if(dist < minDist)
+                {
+                    minDist = dist;
+                    magnet1 = m1;
+                    magnet2 = m2;
+                }
+            }
+        }
+
+        if(magnet1 != null && magnet2 != null)
+        {
+            Snap(magnet1, magnet2);
+        }
+        /*if (snappingScript != null && snappingScript.GetMagnets().Count > 0)
+        {
+            foreach (GameObject magnet in snappingScript.GetMagnets())
+            {
+                List<GameObject> nearbyMagnets = snappingScript.GetNearbyMagnets(magnet);
+                if(nearbyMagnets.Count > 0)
+                {
+                    //TODO: get the nearest pair of magnets
+                    //Snap(magnet, nearbyMagnets[0]);
+                    //return;
+                }
+            }
+        }*/
+    }
+
+    private void Snap(GameObject thisMagnet, GameObject otherMagnet) {
+        /* //Determine which side the othermagnet is on
+         Transform otherT = otherMagnet.transform;
+         Transform thisT = thisMagnet.transform;
+         Bounds ob = otherMagnet.GetComponent<Collider2D>().bounds;
+         Bounds tb = thisMagnet.GetComponent<Collider2D>().bounds;
+         if (otherT.position.y > thisT.position.y && tb.center.y < ob.center.y - ob.extents.y)
+         {
+             //Snapping to bottom of top right magnet or top left magnet
+             Debug.Log("1!");
+             float xdiff = ob.center.x - tb.center.x;
+             float ydiff = ob.center.y - tb.center.y;
+             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff - ob.extents.y * 2, -1);
+         }
+         else if (otherT.position.y > thisT.position.y)
+         {
+             //Snapping to sides of top right magnet or top left magnet
+             Debug.Log("2!");
+             float xdiff;
+             if (ob.center.x < tb.center.x) xdiff = (ob.center.x + ob.extents.x) - (tb.center.x - tb.extents.x);
+             else xdiff = (ob.center.x - ob.extents.x * 3) - (tb.center.x - tb.extents.x);
+             float ydiff = ob.center.y - tb.center.y;
+             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff, -1);
+         }
+         else if(otherT.position.y < thisT.position.y)
+         {
+             //Snapping to bottom right magnet or bottom left magnet
+             Debug.Log("3!");
+             float xdiff = ob.center.x - tb.center.x;
+             float ydiff = ob.center.y - tb.center.y;
+             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff + ob.extents.y * 2, -1);
+         }
+         else
+         {
+             Debug.Log("4!");
+         }*/
+
+        //Align the two magnets to be next to each other
+        float diffx = thisMagnet.transform.position.x - otherMagnet.transform.position.x;
+        float diffy = thisMagnet.transform.position.y - otherMagnet.transform.position.y;
+        transform.position = new Vector3(transform.position.x - diffx, transform.position.y - diffy, -1);
     }
 
     IEnumerator LerpObjectPosition(Vector3 target)
