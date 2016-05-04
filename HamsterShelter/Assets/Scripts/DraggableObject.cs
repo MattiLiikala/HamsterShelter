@@ -173,57 +173,9 @@ public class DraggableObject : MonoBehaviour
         {
             Snap(magnet1, magnet2);
         }
-        /*if (snappingScript != null && snappingScript.GetMagnets().Count > 0)
-        {
-            foreach (GameObject magnet in snappingScript.GetMagnets())
-            {
-                List<GameObject> nearbyMagnets = snappingScript.GetNearbyMagnets(magnet);
-                if(nearbyMagnets.Count > 0)
-                {
-                    //TODO: get the nearest pair of magnets
-                    //Snap(magnet, nearbyMagnets[0]);
-                    //return;
-                }
-            }
-        }*/
     }
 
     private void Snap(GameObject thisMagnet, GameObject otherMagnet) {
-        /* //Determine which side the othermagnet is on
-         Transform otherT = otherMagnet.transform;
-         Transform thisT = thisMagnet.transform;
-         Bounds ob = otherMagnet.GetComponent<Collider2D>().bounds;
-         Bounds tb = thisMagnet.GetComponent<Collider2D>().bounds;
-         if (otherT.position.y > thisT.position.y && tb.center.y < ob.center.y - ob.extents.y)
-         {
-             //Snapping to bottom of top right magnet or top left magnet
-             Debug.Log("1!");
-             float xdiff = ob.center.x - tb.center.x;
-             float ydiff = ob.center.y - tb.center.y;
-             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff - ob.extents.y * 2, -1);
-         }
-         else if (otherT.position.y > thisT.position.y)
-         {
-             //Snapping to sides of top right magnet or top left magnet
-             Debug.Log("2!");
-             float xdiff;
-             if (ob.center.x < tb.center.x) xdiff = (ob.center.x + ob.extents.x) - (tb.center.x - tb.extents.x);
-             else xdiff = (ob.center.x - ob.extents.x * 3) - (tb.center.x - tb.extents.x);
-             float ydiff = ob.center.y - tb.center.y;
-             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff, -1);
-         }
-         else if(otherT.position.y < thisT.position.y)
-         {
-             //Snapping to bottom right magnet or bottom left magnet
-             Debug.Log("3!");
-             float xdiff = ob.center.x - tb.center.x;
-             float ydiff = ob.center.y - tb.center.y;
-             transform.position = new Vector3(transform.position.x + xdiff, transform.position.y + ydiff + ob.extents.y * 2, -1);
-         }
-         else
-         {
-             Debug.Log("4!");
-         }*/
 
         //Align the two magnets to be next to each other
         float diffx = thisMagnet.transform.position.x - otherMagnet.transform.position.x;
