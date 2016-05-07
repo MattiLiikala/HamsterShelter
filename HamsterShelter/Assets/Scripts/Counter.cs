@@ -12,13 +12,18 @@ public class Counter : MonoBehaviour
     private int total;
     private int count;
 
+    void Start()
+    {
+        updateText();
+    }
+
     public int Total
     {
         get { return total; }
         set
         {
             total = value;
-            if (textComponent != null) textComponent.text = Text + count + "/" + total;
+            updateText();
         }
     }
     public virtual int Count
@@ -28,7 +33,7 @@ public class Counter : MonoBehaviour
         {
             count = value;
             total = System.Math.Max(count, total);
-            if (textComponent != null) textComponent.text = Text + count + "/" + total;
+            updateText();
         }
     }
 
@@ -36,5 +41,10 @@ public class Counter : MonoBehaviour
     protected virtual void Awake()
     {
         textComponent = GetComponent<Text>();
+    }
+
+    private void updateText()
+    {
+        if (textComponent != null) textComponent.text = Text + count + "/" + total;
     }
 }

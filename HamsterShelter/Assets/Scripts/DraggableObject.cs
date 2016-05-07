@@ -15,7 +15,7 @@ public class DraggableObject : MonoBehaviour
     private bool binCollision = false;
 
     //Toggle to false is snapping is disabled
-    public static bool UseSnapping = false;
+    public static bool UseSnapping = true;
 
     public Counter Counter;
 
