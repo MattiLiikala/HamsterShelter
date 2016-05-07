@@ -15,8 +15,12 @@ public class WallScript : MonoBehaviour, IDamageable
 
     private Rigidbody2D rigidBody;
 
+    //Determines which wall is currently selected, used with rotating btn
+    private static GameObject SelectedWall = null;
+
     void Start()
     {
+
         spriteRenderer  = GetComponent<SpriteRenderer>();
         rigidBody       = GetComponent<Rigidbody2D>();
 
@@ -34,8 +38,23 @@ public class WallScript : MonoBehaviour, IDamageable
         //rigidBody.isKinematic = MeteorRain.Instance == null || !MeteorRain.Instance.HasStarted;
         if (MeteorRain.Instance.HasStarted) rigidBody.isKinematic = false;
         else rigidBody.isKinematic = true;
+
+        //If a wall is selected, and mouse is clicked outside of any walls, unselect the selected
+        //TODO
     }
 
+    void OnMouseDown()
+    {
+        SelectWall(this.gameObject);
+    }
+
+    public void SelectWall(GameObject wall)
+    {
+        if (SelectedWall != null) SelectedWall.GetComponent<SpriteRenderer>().color = Color.white;
+        SelectedWall = wall;
+        SelectedWall.GetComponent<SpriteRenderer>().color = Color.blue;
+    }
+    
     public void TakeDamage(int amount)
     {
         health -= amount;
@@ -54,6 +73,11 @@ public class WallScript : MonoBehaviour, IDamageable
 
             Destroy(gameObject);
         }
+    }
+
+    public void RotateWall()
+    {
+        SelectedWall.transform.Rotate(0, 0, 90);
     }
 	
 }

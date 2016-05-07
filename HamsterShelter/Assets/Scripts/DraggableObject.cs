@@ -26,8 +26,9 @@ public class DraggableObject : MonoBehaviour
 
     private Rigidbody2D rigidBody;
     private Collider2D collider;
-    private SpriteRenderer renderer;
- 
+    private SpriteRenderer spriterenderer;
+
+    private Color originalRendererColor;
 
     //used for storing the gravity scale because it's set to 0 while dragging
     private float prevGravityScale;
@@ -38,7 +39,7 @@ public class DraggableObject : MonoBehaviour
     {
         rigidBody   = GetComponent<Rigidbody2D>();
         collider    = GetComponent<Collider2D>();
-        renderer    = GetComponent<SpriteRenderer>();
+        spriterenderer    = GetComponent<SpriteRenderer>();
     }
 
     public void OnMouseDown()
@@ -54,9 +55,15 @@ public class DraggableObject : MonoBehaviour
     /// </summary>
     public void StartDragging()
     {
-        Dragging = true;
+        //If the dragged object is a wall object, set it as selected object
+        if (GetComponent<WallScript>() != null) GetComponent<WallScript>().SelectWall(this.gameObject);
+        spriterenderer = GetComponent<SpriteRenderer>();
 
-		if (GameManager.Instance.isPaused == true)
+        Dragging = true;
+        if (spriterenderer != null) originalRendererColor = spriterenderer.color;
+        else originalRendererColor = Color.white;
+        Debug.Log(originalRendererColor);
+        if (GameManager.Instance.isPaused == true)
 			return;
         if (MeteorRain.Instance != null && MeteorRain.Instance.HasStarted) return;
         illegalCollisions = 0;
@@ -107,7 +114,7 @@ public class DraggableObject : MonoBehaviour
 
             //If in nonplaceable position, return the object to its original position
             StartCoroutine(LerpObjectPosition(draggingStartPos));
-            renderer.color = Color.white;
+            spriterenderer.color = originalRendererColor;
         }
 
         //If the object should be snapped to position
@@ -135,9 +142,9 @@ public class DraggableObject : MonoBehaviour
 
             bool isPlaceable = IsPlaceablePosition(dragPos);
 
-            if (renderer != null)
+            if (spriterenderer != null)
             {
-                renderer.color = isPlaceable ? Color.white : Color.red;
+                spriterenderer.color = isPlaceable ? originalRendererColor : Color.red;
             }
 
             //align the object to the grid
