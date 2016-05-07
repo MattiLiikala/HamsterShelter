@@ -16,7 +16,7 @@ public class WallScript : MonoBehaviour, IDamageable
     private Rigidbody2D rigidBody;
 
     //Determines which wall is currently selected, used with rotating btn
-    private static GameObject SelectedWall = null;
+    public static GameObject SelectedWall = null;
 
     void Start()
     {
@@ -50,7 +50,17 @@ public class WallScript : MonoBehaviour, IDamageable
 
     public void SelectWall(GameObject wall)
     {
-        if (SelectedWall != null) SelectedWall.GetComponent<SpriteRenderer>().color = Color.white;
+        if (SelectedWall != null)
+        {
+            SelectedWall.GetComponent<SpriteRenderer>().color = Color.white;
+            if(SelectedWall.gameObject == wall)
+            {
+                SelectedWall = null;
+                this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                return;
+            }
+            SelectedWall = null;
+        }
         SelectedWall = wall;
         SelectedWall.GetComponent<SpriteRenderer>().color = Color.blue;
     }
