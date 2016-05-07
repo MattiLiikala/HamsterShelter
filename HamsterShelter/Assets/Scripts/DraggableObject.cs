@@ -14,6 +14,9 @@ public class DraggableObject : MonoBehaviour
     //Toggled when object collides with the trash bin object
     private bool binCollision = false;
 
+    //clickOffset if the selected object has not been dragged from the middle of the object
+    private Vector3 clickOffset = new Vector3(0,0,0);
+
     //Toggle to false is snapping is disabled
     public static bool UseSnapping = true;
 
@@ -47,6 +50,10 @@ public class DraggableObject : MonoBehaviour
         if (DraggedObject == null)
         {
             StartDragging();
+            //Determine offset
+            float diffx = this.collider.bounds.center.x - Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            float diffy = this.collider.bounds.center.y - Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+            clickOffset = new Vector3(diffx, diffy, 0);
         }
     }
 	
@@ -150,7 +157,7 @@ public class DraggableObject : MonoBehaviour
             dragPos.x = (Mathf.Floor(dragPos.x / GridSize)+0.5f) * GridSize;
             dragPos.y = (Mathf.Floor(dragPos.y / GridSize)+0.5f) * GridSize;
             
-            gameObject.transform.position = dragPos;
+            gameObject.transform.position = dragPos + clickOffset;
         }
         else
         {

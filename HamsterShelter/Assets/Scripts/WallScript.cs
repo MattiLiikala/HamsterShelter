@@ -87,7 +87,7 @@ public class WallScript : MonoBehaviour, IDamageable
 
     public void RotateWall()
     {
-        SelectedWall.transform.Rotate(0, 0, 90);
+        if(SelectedWall != null) SelectedWall.transform.Rotate(0, 0, 90);
     }
 	
 }
