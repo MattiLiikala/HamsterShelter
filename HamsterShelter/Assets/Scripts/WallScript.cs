@@ -7,6 +7,8 @@ public class WallScript : MonoBehaviour, IDamageable
 	public int Durability;
     private int health;
 
+    private bool isSelected = false;
+
     public GameObject SpawnWhenDestroyed;
 
     public Sprite[] Sprites;
@@ -57,12 +59,14 @@ public class WallScript : MonoBehaviour, IDamageable
             {
                 SelectedWall = null;
                 this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+                isSelected = false;
                 return;
             }
             SelectedWall = null;
         }
         SelectedWall = wall;
         SelectedWall.GetComponent<SpriteRenderer>().color = Color.blue;
+        isSelected = true;
     }
     
     public void TakeDamage(int amount)
@@ -88,6 +92,11 @@ public class WallScript : MonoBehaviour, IDamageable
     public void RotateWall()
     {
         if(SelectedWall != null) SelectedWall.transform.Rotate(0, 0, 90);
+    }
+
+    public bool IsSelected()
+    {
+        return isSelected;
     }
 	
 }

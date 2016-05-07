@@ -32,6 +32,8 @@ public class DraggableObject : MonoBehaviour
     private SpriteRenderer spriterenderer;
 
     private Color originalRendererColor;
+    private bool wallSelectionStatus;
+
 
     //used for storing the gravity scale because it's set to 0 while dragging
     private float prevGravityScale;
@@ -63,7 +65,7 @@ public class DraggableObject : MonoBehaviour
     public void StartDragging()
     {
         spriterenderer = GetComponent<SpriteRenderer>();
-
+        if (GetComponent<WallScript>() != null) wallSelectionStatus = GetComponent<WallScript>().IsSelected();
         Dragging = true;
         if (spriterenderer != null) originalRendererColor = spriterenderer.color;
         else originalRendererColor = Color.white;
@@ -133,6 +135,13 @@ public class DraggableObject : MonoBehaviour
         }
 
         if (collider != null) collider.isTrigger = false;
+        //If the wall was selected prior to dragging, set it back as selected since clicking has unselected it
+        if (GetComponent<WallScript>() != null && !wallSelectionStatus
+            && Vector3.Distance(transform.position, draggingStartPos) > 0.05f)
+        {
+            GetComponent<WallScript>().SelectWall(DraggedObject.gameObject);
+        }
+
         DraggedObject = null;
     }
 
