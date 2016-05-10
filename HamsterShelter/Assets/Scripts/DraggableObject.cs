@@ -126,7 +126,7 @@ public class DraggableObject : MonoBehaviour
         }
 
         //If the object should be snapped to position
-        if(UseSnapping) SnapToPos();
+        if(UseSnapping && GetComponent<WallScript>() != null) SnapToPos();
 
         if (rigidBody != null)
         {
