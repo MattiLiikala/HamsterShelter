@@ -51,10 +51,9 @@ public class UIManager : MonoBehaviour
     public void ToggleFastForward()
     {
         fastForward = !fastForward;
-
         var colors = FastForwardButton.colors;
         colors.normalColor = fastForward ? Color.green : Color.white;
-
+        colors.highlightedColor = fastForward ? Color.green : Color.white;
         FastForwardButton.colors = colors;
     }
 

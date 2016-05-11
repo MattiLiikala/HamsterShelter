@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class GameManager : MonoBehaviour
 
 	public bool isPaused;
 
-    
+    [SerializeField]
+    private Button muteButton;
+
     void Awake()
     {
         Instance = this;
@@ -89,11 +92,19 @@ public class GameManager : MonoBehaviour
 	public void DisableSound() {
 		if (AudioListener.volume != 0) {
 			AudioListener.volume = 0.0f;
-			return;
+            var colors = muteButton.colors;
+            colors.normalColor = Color.green;
+            colors.highlightedColor = Color.green;
+            muteButton.colors = colors;
+            return;
 		}
 		if (AudioListener.volume == 0) {
 			AudioListener.volume = 1;
-			return;
+            var colors = muteButton.colors;
+            colors.normalColor = Color.white;
+            colors.highlightedColor = Color.white;
+            muteButton.colors = colors;
+            return;
 		}
 	}
 		
